@@ -1,0 +1,657 @@
+{
+  "konfigurasi_masjid": [
+    {
+      "id": 1,
+      "nama_masjid": "Masjid Al-Mubarok",
+      "lokasi": "Gunungkidul, DI Yogyakarta",
+      "periode_tahun": 2026
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin_masjid",
+      "password": "admin123",
+      "role": "pengurus",
+      "nama": "H. Suyanto",
+      "alamat": "Jl. Melati No. 17, Gedangsari",
+      "kontak": "081234567890",
+      "status": "aktif"
+    },
+    {
+      "id": 2,
+      "username": "jamaah01",
+      "password": "jamaah123",
+      "role": "jamaah",
+      "nama": "Fauzan Hidayat",
+      "alamat": "Jl. Melati No. 10, Gedangsari",
+      "kontak": "082345678901",
+      "status": "aktif"
+    },
+    {
+      "id": 3,
+      "username": "jamaah02",
+      "password": "jamaah1234",
+      "role": "jamaah",
+      "nama": "Rizky Maulana",
+      "alamat": "Jl. Mawar No. 15, Gedangsari",
+      "kontak": "082312345678",
+      "status": "aktif"
+    },
+    {
+      "id": 1770694221249,
+      "username": "sholeh",
+      "password": "123",
+      "role": "jamaah",
+      "nama": "Sholeh Hidayat",
+      "kontak": "082467236287",
+      "alamat": "Mongkrong, Sampang, Gedangsari, Gunungkidul",
+      "status": "aktif"
+    },
+    {
+      "id": 1771909345286,
+      "username": "Irman",
+      "password": "123",
+      "role": "jamaah",
+      "nama": "Irman Nur Hida",
+      "kontak": "082673674891",
+      "alamat": "jogja",
+      "status": "aktif"
+    }
+  ],
+  "imam": [
+    {
+      "id": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "kontak": "081111111111",
+      "keterangan": "Imam Tetap"
+    },
+    {
+      "id": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "kontak": "082222222222",
+      "keterangan": "Imam Cadangan"
+    },
+    {
+      "id": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "kontak": "085162581872",
+      "keterangan": "Imam Tetap"
+    },
+    {
+      "id": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "kontak": "083344455566",
+      "keterangan": "Imam Tamu"
+    },
+    {
+      "id": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "kontak": "081298765432",
+      "keterangan": "Imam Tetap"
+    },
+    {
+      "nama_imam": "Ustadz Agus Setiawan",
+      "kontak": "085177788899",
+      "keterangan": "Imam Cadangan",
+      "id": 1771575018333
+    }
+  ],
+  "jadwal_jumat": [
+    {
+      "tanggal_jumat": "2026-01-02",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 1
+    },
+    {
+      "tanggal_jumat": "2026-01-09",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 2
+    },
+    {
+      "tanggal_jumat": "2026-01-16",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 3
+    },
+    {
+      "tanggal_jumat": "2026-01-23",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 4
+    },
+    {
+      "tanggal_jumat": "2026-01-30",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 5
+    },
+    {
+      "tanggal_jumat": "2026-02-06",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 6
+    },
+    {
+      "tanggal_jumat": "2026-02-13",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 7
+    },
+    {
+      "tanggal_jumat": "2026-02-20",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 8
+    },
+    {
+      "tanggal_jumat": "2026-03-06",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 10
+    },
+    {
+      "tanggal_jumat": "2026-03-13",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 11
+    },
+    {
+      "tanggal_jumat": "2026-03-20",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 12
+    },
+    {
+      "tanggal_jumat": "2026-03-27",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 13
+    },
+    {
+      "tanggal_jumat": "2026-04-03",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 14
+    },
+    {
+      "tanggal_jumat": "2026-04-10",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 15
+    },
+    {
+      "tanggal_jumat": "2026-04-17",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 16
+    },
+    {
+      "tanggal_jumat": "2026-04-24",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 17
+    },
+    {
+      "tanggal_jumat": "2026-05-01",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 18
+    },
+    {
+      "tanggal_jumat": "2026-05-08",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 19
+    },
+    {
+      "tanggal_jumat": "2026-05-15",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 20
+    },
+    {
+      "tanggal_jumat": "2026-05-22",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 21
+    },
+    {
+      "tanggal_jumat": "2026-05-29",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 22
+    },
+    {
+      "tanggal_jumat": "2026-06-05",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 23
+    },
+    {
+      "tanggal_jumat": "2026-06-12",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 24
+    },
+    {
+      "tanggal_jumat": "2026-06-19",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 25
+    },
+    {
+      "tanggal_jumat": "2026-06-26",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 26
+    },
+    {
+      "tanggal_jumat": "2026-07-03",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 27
+    },
+    {
+      "tanggal_jumat": "2026-07-10",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 28
+    },
+    {
+      "tanggal_jumat": "2026-07-17",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 29
+    },
+    {
+      "tanggal_jumat": "2026-07-24",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 30
+    },
+    {
+      "tanggal_jumat": "2026-07-31",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 31
+    },
+    {
+      "tanggal_jumat": "2026-08-07",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 32
+    },
+    {
+      "tanggal_jumat": "2026-08-14",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 33
+    },
+    {
+      "tanggal_jumat": "2026-08-21",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 34
+    },
+    {
+      "tanggal_jumat": "2026-08-28",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 35
+    },
+    {
+      "tanggal_jumat": "2026-09-04",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 36
+    },
+    {
+      "tanggal_jumat": "2026-09-11",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 37
+    },
+    {
+      "tanggal_jumat": "2026-09-18",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 38
+    },
+    {
+      "tanggal_jumat": "2026-09-25",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 39
+    },
+    {
+      "tanggal_jumat": "2026-10-02",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 40
+    },
+    {
+      "tanggal_jumat": "2026-10-09",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 41
+    },
+    {
+      "tanggal_jumat": "2026-10-16",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 42
+    },
+    {
+      "tanggal_jumat": "2026-10-23",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 43
+    },
+    {
+      "tanggal_jumat": "2026-10-30",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 44
+    },
+    {
+      "tanggal_jumat": "2026-11-06",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 45
+    },
+    {
+      "tanggal_jumat": "2026-11-13",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 46
+    },
+    {
+      "tanggal_jumat": "2026-11-20",
+      "id_imam": 1771575018332,
+      "nama_imam": "Ustadz Ridwan Karim",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 47
+    },
+    {
+      "tanggal_jumat": "2026-11-27",
+      "id_imam": 1771575018333,
+      "nama_imam": "Ustadz Agus Setiawan",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 48
+    },
+    {
+      "tanggal_jumat": "2026-12-04",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 49
+    },
+    {
+      "tanggal_jumat": "2026-12-11",
+      "id_imam": 2,
+      "nama_imam": "Ustadz Ahmad Fauzi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 50
+    },
+    {
+      "tanggal_jumat": "2026-12-18",
+      "id_imam": 1771573864108,
+      "nama_imam": "Ustadz Sholeh Hidayat",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 51
+    },
+    {
+      "tanggal_jumat": "2026-12-25",
+      "id_imam": 1771575004332,
+      "nama_imam": "Ustadz Habiburrahman",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 52
+    },
+    {
+      "tanggal_jumat": "2026-02-27",
+      "id_imam": 1,
+      "nama_imam": "Ustadz Samsul Hadi",
+      "status": "terjadwal",
+      "notifikasi_terkirim": false,
+      "tahun": 2026,
+      "id": 53
+    }
+  ],
+  "pengumuman": [
+    {
+      "id": 1,
+      "judul": "Kajian Rutin Jumat",
+      "deskripsi": "Kajian ba'da Maghrib setiap Jumat malam bersama Ustadz Samsul Hadi",
+      "tanggal_mulai": "2026-01-05",
+      "tanggal_selesai": "2026-12-31",
+      "waktu_selesai": "19:30",
+      "is_aktif": true
+    },
+    {
+      "id": 2,
+      "judul": "Kerja Bakti Menyambut Ramadhan",
+      "deskripsi": "Pembersihan area dalam dan luar masjid",
+      "tanggal_mulai": "2026-02-20",
+      "tanggal_selesai": "2026-02-21",
+      "waktu_selesai": "10:00",
+      "is_aktif": true
+    },
+    {
+      "judul": "Kajian Rutin Ahad Pagi",
+      "deskripsi": "Kajian Bersama Ustadz SHoleh Hidayat",
+      "tanggal_mulai": "2026-03-01",
+      "tanggal_selesai": "2026-03-01",
+      "waktu_selesai": "22:30",
+      "is_aktif": true,
+      "id": 3
+    }
+  ],
+  "transaksi_keuangan": [
+    {
+      "id": 2,
+      "tanggal": "2026-02-07",
+      "jenis_transaksi": "infak",
+      "metode": "tunai",
+      "nominal": 3750000,
+      "keterangan": "Infak Jumat minggu pertama Februari",
+      "kategori": "Operasional"
+    },
+    {
+      "id": 3,
+      "tanggal": "2026-02-14",
+      "jenis_transaksi": "donasi",
+      "metode": "transfer",
+      "nominal": 7500000,
+      "keterangan": "Donasi pembangunan kanopi parkir"
+    },
+    {
+      "tanggal": "2026-02-24",
+      "jenis_transaksi": "infak",
+      "metode": "tunai",
+      "nominal": 10000000,
+      "keterangan": "kotak infak",
+      "id": 4
+    }
+  ],
+  "pengeluaran": [
+    {
+      "id": 1,
+      "tanggal": "2026-01-11",
+      "kategori": "Operasional",
+      "nominal": 450000,
+      "keterangan": "Pembelian alat kebersihan dan karbol"
+    },
+    {
+      "id": 2,
+      "tanggal": "2026-02-19",
+      "kategori": "Operasional",
+      "nominal": 1250000,
+      "keterangan": "Perbaikan kipas angin aula utama"
+    },
+    {
+      "tanggal": "2026-02-24",
+      "kategori": "Sosial",
+      "nominal": 200000,
+      "keterangan": "santunan pengajian",
+      "id": 3
+    }
+  ],
+  "kas_masjid": [
+    {
+      "id": 1,
+      "total_pemasukan": 21250000,
+      "total_pengeluaran": 1900000,
+      "saldo_akhir": 19350000
+    }
+  ]
+}

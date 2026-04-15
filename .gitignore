@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production / Build outputs
+dist/
+build/
+.next/
+out/
+
+
+# Debug logs
+npm-debug.log*
