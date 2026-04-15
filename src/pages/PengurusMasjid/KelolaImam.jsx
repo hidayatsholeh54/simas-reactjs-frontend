@@ -11,22 +11,22 @@ import { cekJadwalBesok } from '../../features/notifikasi/notifikasiSlice';
 import NavbarPengurus from './NavbarPengurus';
 import api from '../../services/api';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faMosque } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faMosque, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-const getJadwalId   = (j) => j.id_jadwal ?? j.id;
-const formatDate    = (date) => {
+const getJadwalId = (j) => j.id_jadwal ?? j.id;
+const formatDate = (date) => {
   const d = typeof date === 'string' ? new Date(date) : date;
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 };
 const formatDateDisplay = (str) =>
-  new Date(str).toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  new Date(str).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 const hitungJumlahJumat = (tahun) => {
   const d = new Date(tahun, 0, 1); let c = 0;
-  while (d.getFullYear() === tahun) { if (d.getDay()===5) c++; d.setDate(d.getDate()+1); }
+  while (d.getFullYear() === tahun) { if (d.getDay() === 5) c++; d.setDate(d.getDate() + 1); }
   return c;
 };
-const getTodayStr    = () => formatDate(new Date());
-const getTomorrowStr = () => { const d=new Date(); d.setDate(d.getDate()+1); return formatDate(d); };
+const getTodayStr = () => formatDate(new Date());
+const getTomorrowStr = () => { const d = new Date(); d.setDate(d.getDate() + 1); return formatDate(d); };
 
 // Alert jadwal yang gagal tersimpan 
 function AlertJadwalGagal({ jadwalGagal, loadingRetry, onIsiOtomatis, onIsiManual, onDismiss }) {
@@ -95,7 +95,7 @@ function ModalIsiJadwalKosong({ jadwalGagal, imamList, jadwalExisting, onSimpan,
     setSaving(true);
     const payload = belumAda.map(j => ({
       ...j,
-      id_imam:   pilihanImam[j.tanggal_jumat] || j.id_imam,
+      id_imam: pilihanImam[j.tanggal_jumat] || j.id_imam,
       nama_imam: imamList.find(i => i.id === Number(pilihanImam[j.tanggal_jumat] || j.id_imam))?.nama_imam || j.nama_imam,
     }));
     await onSimpan(payload);
@@ -118,7 +118,7 @@ function ModalIsiJadwalKosong({ jadwalGagal, imamList, jadwalExisting, onSimpan,
           {/* Sudah ada di db.json — info saja */}
           {sudahAda.length > 0 && (
             <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-xs text-green-700">
-               {sudahAda.length} tanggal sudah tersimpan sebelumnya (akan dilewati):
+              {sudahAda.length} tanggal sudah tersimpan sebelumnya (akan dilewati):
               {' '}{sudahAda.map(j => j.tanggal_jumat).join(', ')}
             </div>
           )}
@@ -126,7 +126,7 @@ function ModalIsiJadwalKosong({ jadwalGagal, imamList, jadwalExisting, onSimpan,
           {/* Belum ada — bisa diisi */}
           {belumAda.length === 0 ? (
             <div className="text-center py-8 text-gray-400">
-              <p className="text-3xl mb-2">✅</p>
+              <p className="text-3xl mb-2"><FontAwesomeIcon icon={faCheck} className="text-2xl" /></p>
               <p>Semua jadwal sudah tersimpan di database!</p>
             </div>
           ) : (
@@ -195,22 +195,22 @@ function KelolaImam() {
   const { imam, jadwal, jadwalGagal, loading, loadingRetry, error, success, statistikDistribusi } =
     useSelector((s) => s.imam);
 
-  const [activeTab,          setActiveTab]          = useState('imam');
-  const [showModal,          setShowModal]           = useState(false);
-  const [showGenerateModal,  setShowGenerateModal]   = useState(false);
-  const [showManualModal,    setShowManualModal]     = useState(false);
-  const [showEditJadwal,     setShowEditJadwal]      = useState(false);
-  const [showIsiKosong,      setShowIsiKosong]       = useState(false); // modal isi jadwal kosong
-  const [showStatistik,      setShowStatistik]       = useState(false);
-  const [editingId,          setEditingId]           = useState(null);
-  const [editingJadwal,      setEditingJadwal]       = useState(null);
-  const [savingJadwal,       setSavingJadwal]        = useState(false);
-  const [tahunGenerate,      setTahunGenerate]       = useState(new Date().getFullYear());
-  const [filterTahun,        setFilterTahun]         = useState('semua');
-  const [formData,           setFormData]            = useState({ nama_imam:'', kontak:'', keterangan:'' });
-  const [manualData,         setManualData]          = useState({ tanggal_jumat:'', id_imam:'' });
-  const [editJadwalForm,     setEditJadwalForm]      = useState({ tanggal_jumat:'', id_imam:'', nama_imam:'', status:'terjadwal' });
-  const [duplikatError,      setDuplikatError]       = useState(''); // error duplikat di modal manual
+  const [activeTab, setActiveTab] = useState('imam');
+  const [showModal, setShowModal] = useState(false);
+  const [showGenerateModal, setShowGenerateModal] = useState(false);
+  const [showManualModal, setShowManualModal] = useState(false);
+  const [showEditJadwal, setShowEditJadwal] = useState(false);
+  const [showIsiKosong, setShowIsiKosong] = useState(false);
+  const [showStatistik, setShowStatistik] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  const [editingJadwal, setEditingJadwal] = useState(null);
+  const [savingJadwal, setSavingJadwal] = useState(false);
+  const [tahunGenerate, setTahunGenerate] = useState(new Date().getFullYear());
+  const [filterTahun, setFilterTahun] = useState('semua');
+  const [formData, setFormData] = useState({ nama_imam: '', kontak: '', keterangan: '' });
+  const [manualData, setManualData] = useState({ tanggal_jumat: '', id_imam: '' });
+  const [editJadwalForm, setEditJadwalForm] = useState({ tanggal_jumat: '', id_imam: '', nama_imam: '', status: 'terjadwal' });
+  const [duplikatError, setDuplikatError] = useState(''); // error duplikat di modal manual
 
   const autoNotifRef = useRef(null);
 
@@ -236,27 +236,27 @@ function KelolaImam() {
   }, [error, success, dispatch]);
 
   // Get Imam
-  const getImamName   = (id) => imam.find(i => i.id === id)?.nama_imam || '-';
+  const getImamName = (id) => imam.find(i => i.id === id)?.nama_imam || '-';
   const tahunTersedia = [...new Set(jadwal.map(j => j.tahun))].sort();
-  const besok         = getTomorrowStr();
-  const jadwalBesok   = jadwal.filter(j => j.tanggal_jumat === besok);
+  const besok = getTomorrowStr();
+  const jadwalBesok = jadwal.filter(j => j.tanggal_jumat === besok);
   const jadwalFiltered = filterTahun === 'semua' ? jadwal : jadwal.filter(j => j.tahun === Number(filterTahun));
-  const jadwalSorted   = [...jadwalFiltered].sort((a,b) => new Date(a.tanggal_jumat)-new Date(b.tanggal_jumat));
+  const jadwalSorted = [...jadwalFiltered].sort((a, b) => new Date(a.tanggal_jumat) - new Date(b.tanggal_jumat));
   const statistikAktif = statistikDistribusi.length > 0
     ? statistikDistribusi
     : imam.map(im => ({ nama: im.nama_imam, jumlah: jadwalFiltered.filter(j => j.id_imam === im.id).length }));
 
   // Reset Imam
-  const resetForm    = () => { setFormData({ nama_imam:'', kontak:'', keterangan:'' }); setEditingId(null); };
+  const resetForm = () => { setFormData({ nama_imam: '', kontak: '', keterangan: '' }); setEditingId(null); };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (editingId) await dispatch(updateImam({ id: editingId, data: formData }));
-    else           await dispatch(addImam(formData));
+    else await dispatch(addImam(formData));
     setShowModal(false); resetForm();
   };
-  const handleEdit   = (item) => {
+  const handleEdit = (item) => {
     setEditingId(item.id);
-    setFormData({ nama_imam:item.nama_imam, kontak:item.kontak||'', keterangan:item.keterangan||'' });
+    setFormData({ nama_imam: item.nama_imam, kontak: item.kontak || '', keterangan: item.keterangan || '' });
     setShowModal(true);
   };
   const handleDelete = (id) => { if (window.confirm('Hapus imam ini?')) dispatch(deleteImam(id)); };
@@ -281,7 +281,7 @@ function KelolaImam() {
       setDuplikatError(result.payload); // tampilkan error duplikat di dalam modal
     } else {
       setShowManualModal(false);
-      setManualData({ tanggal_jumat:'', id_imam:'' });
+      setManualData({ tanggal_jumat: '', id_imam: '' });
     }
   };
 
@@ -303,9 +303,9 @@ function KelolaImam() {
     setEditingJadwal(item);
     setEditJadwalForm({
       tanggal_jumat: item.tanggal_jumat,
-      id_imam:       item.id_imam,
-      nama_imam:     item.nama_imam || getImamName(item.id_imam),
-      status:        item.status || 'terjadwal',
+      id_imam: item.id_imam,
+      nama_imam: item.nama_imam || getImamName(item.id_imam),
+      status: item.status || 'terjadwal',
     });
     setShowEditJadwal(true);
   };
@@ -319,14 +319,14 @@ function KelolaImam() {
     try {
       await api.patch(`/jadwal_jumat/${dbId}`, {
         tanggal_jumat: editJadwalForm.tanggal_jumat,
-        id_imam:       im.id,
-        nama_imam:     im.nama_imam,
-        status:        editJadwalForm.status,
-        tahun:         new Date(editJadwalForm.tanggal_jumat).getFullYear(),
+        id_imam: im.id,
+        nama_imam: im.nama_imam,
+        status: editJadwalForm.status,
+        tahun: new Date(editJadwalForm.tanggal_jumat).getFullYear(),
       });
       dispatch(fetchJadwal());
       setShowEditJadwal(false); setEditingJadwal(null);
-    } catch (e) { alert('Gagal: '+e.message); }
+    } catch (e) { alert('Gagal: ' + e.message); }
     finally { setSavingJadwal(false); }
   };
 
@@ -417,10 +417,10 @@ function KelolaImam() {
           {/* Tabs */}
           <div className="bg-white rounded-xl shadow mb-6">
             <div className="flex border-b">
-              {[{ key:'imam', label:`Data Imam (${imam.length})` }, { key:'jadwal', label:`Jadwal Jumat (${jadwal.length})` }]
+              {[{ key: 'imam', label: `Data Imam (${imam.length})` }, { key: 'jadwal', label: `Jadwal Jumat (${jadwal.length})` }]
                 .map(tab => (
                   <button key={tab.key} onClick={() => setActiveTab(tab.key)}
-                    className={`flex-1 py-3 font-medium transition-colors ${activeTab===tab.key ? 'border-b-2 border-emerald-600 text-emerald-600' : 'text-gray-500 hover:text-gray-700'}`}>
+                    className={`flex-1 py-3 font-medium transition-colors ${activeTab === tab.key ? 'border-b-2 border-emerald-600 text-emerald-600' : 'text-gray-500 hover:text-gray-700'}`}>
                     {tab.label}
                   </button>
                 ))}
@@ -429,7 +429,7 @@ function KelolaImam() {
 
           {loading && (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-3"/>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-3" />
               <p className="text-gray-500 text-sm">Memproses...</p>
             </div>
           )}
@@ -445,23 +445,23 @@ function KelolaImam() {
               <div className="bg-white rounded-xl shadow overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-gray-50">
-                    <tr>{['No','Nama Imam','Kontak','Keterangan','Total Jadwal','Aksi'].map(h => (
+                    <tr>{['No', 'Nama Imam', 'Kontak', 'Keterangan', 'Total Jadwal', 'Aksi'].map(h => (
                       <th key={h} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{h}</th>
                     ))}</tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {imam.map((item, i) => (
                       <tr key={item.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 text-gray-400">{i+1}</td>
+                        <td className="px-6 py-4 text-gray-400">{i + 1}</td>
                         <td className="px-6 py-4 font-semibold text-gray-800">{item.nama_imam}</td>
-                        <td className="px-6 py-4 text-gray-600">{item.kontak||'-'}</td>
+                        <td className="px-6 py-4 text-gray-600">{item.kontak || '-'}</td>
                         <td className="px-6 py-4">
-                          <span className={`px-2 py-1 text-xs rounded-full ${item.keterangan?.toLowerCase().includes('tetap') ? 'bg-emerald-100 text-emerald-700':'bg-gray-100 text-gray-500'}`}>
-                            {item.keterangan||'-'}
+                          <span className={`px-2 py-1 text-xs rounded-full ${item.keterangan?.toLowerCase().includes('tetap') ? 'bg-emerald-100 text-emerald-700' : 'bg-gray-100 text-gray-500'}`}>
+                            {item.keterangan || '-'}
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="font-bold text-emerald-600">{jadwal.filter(j=>j.id_imam===item.id).length}</span>
+                          <span className="font-bold text-emerald-600">{jadwal.filter(j => j.id_imam === item.id).length}</span>
                           <span className="text-gray-400 text-xs"> jadwal</span>
                         </td>
                         <td className="px-6 py-4 flex gap-2">
@@ -472,7 +472,7 @@ function KelolaImam() {
                     ))}
                     {imam.length === 0 && (
                       <tr><td colSpan="6" className="px-6 py-12 text-center text-gray-400">
-                       <div className="text-center">
+                        <div className="text-center">
                           <FontAwesomeIcon icon={faMosque} className="text-4xl mb-2 text-gray-400" />
                           <p>Belum ada imam.</p>
                         </div>
@@ -506,10 +506,10 @@ function KelolaImam() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
                 {[
-                  { label:'Total Jadwal',   value:jadwalFiltered.length,                                                      color:'blue'   },
-                  { label:'Akan Datang',    value:jadwalFiltered.filter(j=>new Date(j.tanggal_jumat)>=new Date()).length,     color:'emerald'},
-                  { label:'Sudah Lewat',    value:jadwalFiltered.filter(j=>new Date(j.tanggal_jumat)<new Date()).length,      color:'gray'   },
-                  { label:'Notif Terkirim', value:jadwalFiltered.filter(j=>j.notifikasi_terkirim).length,                    color:'purple' },
+                  { label: 'Total Jadwal', value: jadwalFiltered.length, color: 'blue' },
+                  { label: 'Akan Datang', value: jadwalFiltered.filter(j => new Date(j.tanggal_jumat) >= new Date()).length, color: 'emerald' },
+                  { label: 'Sudah Lewat', value: jadwalFiltered.filter(j => new Date(j.tanggal_jumat) < new Date()).length, color: 'gray' },
+                  { label: 'Notif Terkirim', value: jadwalFiltered.filter(j => j.notifikasi_terkirim).length, color: 'purple' },
                 ].map(info => (
                   <div key={info.label} className="bg-white rounded-xl shadow p-4 text-center">
                     <p className={`text-2xl font-bold text-${info.color}-600`}>{info.value}</p>
@@ -521,24 +521,24 @@ function KelolaImam() {
               <div className="bg-white rounded-xl shadow overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-gray-50">
-                    <tr>{['Tanggal Jumat','Imam','Status','Notifikasi','Aksi'].map(h => (
+                    <tr>{['Tanggal Jumat', 'Imam', 'Status', 'Notifikasi', 'Aksi'].map(h => (
                       <th key={h} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{h}</th>
                     ))}</tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {jadwalSorted.map((item) => {
-                      const id      = getJadwalId(item);
+                      const id = getJadwalId(item);
                       const upcoming = new Date(item.tanggal_jumat) >= new Date();
-                      const isBesok  = item.tanggal_jumat === besok;
+                      const isBesok = item.tanggal_jumat === besok;
                       return (
-                        <tr key={id} className={`hover:bg-gray-50 ${isBesok ? 'bg-amber-50 border-l-4 border-amber-400':''}`}>
+                        <tr key={id} className={`hover:bg-gray-50 ${isBesok ? 'bg-amber-50 border-l-4 border-amber-400' : ''}`}>
                           <td className="px-6 py-4">
                             <div className="font-medium text-gray-800">{isBesok && <span className="mr-1">⚠️</span>}{formatDateDisplay(item.tanggal_jumat)}</div>
                             <div className="text-xs text-gray-400">Tahun {item.tahun}</div>
                           </td>
                           <td className="px-6 py-4 font-medium">{getImamName(item.id_imam)}</td>
                           <td className="px-6 py-4">
-                            <span className={`px-2 py-1 text-xs rounded-full ${upcoming?'bg-green-100 text-green-700':'bg-gray-100 text-gray-500'}`}>
+                            <span className={`px-2 py-1 text-xs rounded-full ${upcoming ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
                               {upcoming ? '🟢 Akan datang' : '⚫ Terlewat'}
                             </span>
                           </td>
@@ -558,7 +558,7 @@ function KelolaImam() {
                     {jadwalSorted.length === 0 && (
                       <tr><td colSpan="5" className="px-6 py-12 text-center text-gray-400">
                         <p className="text-4xl mb-2">📅</p>
-                        <p>{filterTahun!=='semua' ? `Belum ada jadwal tahun ${filterTahun}.` : 'Generate atau tambah manual!'}</p>
+                        <p>{filterTahun !== 'semua' ? `Belum ada jadwal tahun ${filterTahun}.` : 'Generate atau tambah manual!'}</p>
                       </td></tr>
                     )}
                   </tbody>
@@ -577,15 +577,15 @@ function KelolaImam() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Nama Imam *</label>
-                <input type="text" name="nama_imam" value={formData.nama_imam} onChange={e => setFormData(p => ({...p,[e.target.name]:e.target.value}))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required />
+                <input type="text" name="nama_imam" value={formData.nama_imam} onChange={e => setFormData(p => ({ ...p, [e.target.name]: e.target.value }))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
-                <input type="text" name="kontak" value={formData.kontak} onChange={e => setFormData(p => ({...p,[e.target.name]:e.target.value}))} placeholder="08xxxxxxxxx" className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" />
+                <input type="text" name="kontak" value={formData.kontak} onChange={e => setFormData(p => ({ ...p, [e.target.name]: e.target.value }))} placeholder="08xxxxxxxxx" className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Keterangan</label>
-                <select name="keterangan" value={formData.keterangan} onChange={e => setFormData(p => ({...p,[e.target.name]:e.target.value}))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500">
+                <select name="keterangan" value={formData.keterangan} onChange={e => setFormData(p => ({ ...p, [e.target.name]: e.target.value }))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500">
                   <option value="">-- Pilih --</option>
                   <option value="Imam Tetap">Imam Tetap</option>
                   <option value="Imam Cadangan">Imam Cadangan</option>
@@ -610,7 +610,7 @@ function KelolaImam() {
             {/* Error duplikat */}
             {duplikatError && (
               <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3 text-red-700 text-sm">
-                ❌ {duplikatError}
+                {duplikatError}
               </div>
             )}
 
@@ -618,7 +618,7 @@ function KelolaImam() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Tanggal Jumat *</label>
                 <input type="date" value={manualData.tanggal_jumat} min={getTodayStr()}
-                  onChange={e => { setDuplikatError(''); setManualData(p => ({...p, tanggal_jumat: e.target.value})); }}
+                  onChange={e => { setDuplikatError(''); setManualData(p => ({ ...p, tanggal_jumat: e.target.value })); }}
                   className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required />
                 {manualData.tanggal_jumat && new Date(manualData.tanggal_jumat).getDay() !== 5 && (
                   <p className="text-red-500 text-xs mt-1">⚠️ Bukan hari Jumat!</p>
@@ -633,9 +633,9 @@ function KelolaImam() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Pilih Imam *</label>
-                <select value={manualData.id_imam} onChange={e => setManualData(p => ({...p, id_imam: Number(e.target.value)}))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required>
+                <select value={manualData.id_imam} onChange={e => setManualData(p => ({ ...p, id_imam: Number(e.target.value) }))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required>
                   <option value="">-- Pilih imam --</option>
-                  {imam.map(im => <option key={im.id} value={im.id}>{im.nama_imam}{im.keterangan ? ` — ${im.keterangan}`:''}</option>)}
+                  {imam.map(im => <option key={im.id} value={im.id}>{im.nama_imam}{im.keterangan ? ` — ${im.keterangan}` : ''}</option>)}
                 </select>
               </div>
               <div className="flex gap-3 mt-6">
@@ -660,7 +660,7 @@ function KelolaImam() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Tanggal Jumat *</label>
                 <input type="date" value={editJadwalForm.tanggal_jumat}
-                  onChange={e => setEditJadwalForm(p => ({...p, tanggal_jumat: e.target.value}))}
+                  onChange={e => setEditJadwalForm(p => ({ ...p, tanggal_jumat: e.target.value }))}
                   className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required />
                 {editJadwalForm.tanggal_jumat && new Date(editJadwalForm.tanggal_jumat).getDay() !== 5 && (
                   <p className="text-amber-500 text-xs mt-1">⚠️ Bukan hari Jumat</p>
@@ -669,24 +669,24 @@ function KelolaImam() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Imam *</label>
                 <select value={editJadwalForm.id_imam}
-                  onChange={e => { const im=imam.find(i=>i.id===Number(e.target.value)); setEditJadwalForm(p=>({...p,id_imam:im?.id||'',nama_imam:im?.nama_imam||''})); }}
+                  onChange={e => { const im = imam.find(i => i.id === Number(e.target.value)); setEditJadwalForm(p => ({ ...p, id_imam: im?.id || '', nama_imam: im?.nama_imam || '' })); }}
                   className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required>
                   <option value="">-- Pilih Imam --</option>
-                  {imam.map(im => <option key={im.id} value={im.id}>{im.nama_imam}{im.keterangan ? ` — ${im.keterangan}`:''}</option>)}
+                  {imam.map(im => <option key={im.id} value={im.id}>{im.nama_imam}{im.keterangan ? ` — ${im.keterangan}` : ''}</option>)}
                 </select>
                 {editJadwalForm.id_imam && (() => {
                   const im = imam.find(i => i.id === Number(editJadwalForm.id_imam));
                   return im ? (
                     <div className="mt-2 bg-emerald-50 border border-emerald-100 rounded-lg px-3 py-2 text-xs">
                       <p className="font-semibold text-emerald-800">{im.nama_imam}</p>
-                      <p className="text-emerald-600 mt-0.5">📞 {im.kontak||'-'}</p>
+                      <p className="text-emerald-600 mt-0.5">📞 {im.kontak || '-'}</p>
                     </div>
                   ) : null;
                 })()}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                <select value={editJadwalForm.status} onChange={e => setEditJadwalForm(p => ({...p, status: e.target.value}))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500">
+                <select value={editJadwalForm.status} onChange={e => setEditJadwalForm(p => ({ ...p, status: e.target.value }))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500">
                   <option value="terjadwal">Terjadwal</option>
                   <option value="selesai">Selesai</option>
                   <option value="dibatalkan">Dibatalkan</option>
@@ -713,22 +713,21 @@ function KelolaImam() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Pilih Tahun</label>
                 <select value={tahunGenerate} onChange={e => setTahunGenerate(Number(e.target.value))} className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500">
-                  {[2024,2025,2026,2027,2028].map(t => <option key={t} value={t}>{t}</option>)}
+                  {[2024, 2025, 2026, 2027, 2028].map(t => <option key={t} value={t}>{t}</option>)}
                 </select>
               </div>
               <div className="bg-blue-50 rounded-lg p-4 text-sm space-y-1.5">
                 <p className="font-semibold text-blue-800">📊 Preview</p>
                 <p className="text-blue-700">Jumlah Jumat: <strong>{hitungJumlahJumat(tahunGenerate)} hari</strong></p>
                 <p className="text-blue-700">Imam: <strong>{imam.length} orang</strong></p>
-                {imam.length > 0 && <p className="text-blue-700">Per imam: <strong>{Math.floor(hitungJumlahJumat(tahunGenerate)/imam.length)}–{Math.ceil(hitungJumlahJumat(tahunGenerate)/imam.length)} jadwal</strong></p>}
-                <p className="text-xs text-amber-600 pt-1">⚠️ Jadwal lama tahun {tahunGenerate} akan dihapus.</p>
-                <p className="text-xs text-emerald-700">✅ Delay 50ms antar request untuk cegah koneksi putus.</p>
+                {imam.length > 0 && <p className="text-blue-700">Per imam: <strong>{Math.floor(hitungJumlahJumat(tahunGenerate) / imam.length)}–{Math.ceil(hitungJumlahJumat(tahunGenerate) / imam.length)} jadwal</strong></p>}
+                <p className="text-xs text-amber-600 pt-1">Jadwal lama tahun {tahunGenerate} akan dihapus.</p>
               </div>
             </div>
             <div className="flex gap-3 mt-6">
               <button onClick={() => setShowGenerateModal(false)} className="flex-1 border py-2 rounded-lg hover:bg-gray-50">Batal</button>
-              <button onClick={handleGenerateJadwal} disabled={loading||imam.length===0} className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-50">
-                {loading ? '⏳ Memproses...' : '✅ Generate'}
+              <button onClick={handleGenerateJadwal} disabled={loading || imam.length === 0} className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-50">
+                {loading ? 'Memproses...' : 'Generate'}
               </button>
             </div>
           </div>
