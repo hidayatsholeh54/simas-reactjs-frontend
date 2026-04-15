@@ -34,7 +34,7 @@ function AlertJadwalGagal({ jadwalGagal, loadingRetry, onIsiOtomatis, onIsiManua
   return (
     <div className="mb-4 bg-orange-50 border border-orange-300 rounded-xl p-4">
       <div className="flex items-start gap-3">
-        <span className="text-2xl shrink-0">⚠️</span>
+        <span className="text-2xl shrink-0">!</span>
         <div className="flex-1">
           <p className="font-bold text-orange-800 text-sm">
             {jadwalGagal.length} jadwal gagal tersimpan saat generate
@@ -56,7 +56,7 @@ function AlertJadwalGagal({ jadwalGagal, loadingRetry, onIsiOtomatis, onIsiManua
               disabled={loadingRetry}
               className="bg-orange-500 text-white text-xs px-3 py-1.5 rounded-lg hover:bg-orange-600 disabled:opacity-50 font-medium"
             >
-              {loadingRetry ? '⏳ Mengisi...' : '🔄 Isi Otomatis (Retry)'}
+              {loadingRetry ? 'Mengisi...' : 'Isi Otomatis (Retry)'}
             </button>
             <button
               onClick={onIsiManual}
@@ -573,7 +573,7 @@ function KelolaImam() {
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl w-full max-w-md p-6 shadow-xl">
-            <h3 className="text-xl font-bold mb-4">{editingId ? '✏️ Edit Imam' : '➕ Tambah Imam'}</h3>
+            <h3 className="text-xl font-bold mb-4">{editingId ? 'Edit Imam' : 'Tambah Imam'}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Nama Imam *</label>
@@ -610,7 +610,7 @@ function KelolaImam() {
             {/* Error duplikat */}
             {duplikatError && (
               <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3 text-red-700 text-sm">
-                {duplikatError}
+                 {duplikatError}
               </div>
             )}
 
@@ -621,14 +621,14 @@ function KelolaImam() {
                   onChange={e => { setDuplikatError(''); setManualData(p => ({ ...p, tanggal_jumat: e.target.value })); }}
                   className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required />
                 {manualData.tanggal_jumat && new Date(manualData.tanggal_jumat).getDay() !== 5 && (
-                  <p className="text-red-500 text-xs mt-1">⚠️ Bukan hari Jumat!</p>
+                  <p className="text-red-500 text-xs mt-1">Bukan hari Jumat!</p>
                 )}
                 {/* Cek real-time apakah tanggal sudah ada */}
                 {manualData.tanggal_jumat && new Date(manualData.tanggal_jumat).getDay() === 5 && (() => {
                   const ada = jadwal.some(j => j.tanggal_jumat === manualData.tanggal_jumat);
                   return ada
-                    ? <p className="text-orange-500 text-xs mt-1">⚠️ Tanggal ini sudah ada jadwalnya! Tidak bisa duplikat.</p>
-                    : <p className="text-green-600 text-xs mt-1">✅ Tanggal tersedia, belum ada jadwal.</p>;
+                    ? <p className="text-orange-500 text-xs mt-1">Tanggal ini sudah ada jadwalnya! Tidak bisa duplikat.</p>
+                    : <p className="text-green-600 text-xs mt-1">Tanggal tersedia, belum ada jadwal.</p>;
                 })()}
               </div>
               <div>
@@ -654,7 +654,7 @@ function KelolaImam() {
       {showEditJadwal && editingJadwal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl w-full max-w-md p-6 shadow-xl">
-            <h3 className="text-xl font-bold mb-1">✏️ Edit Jadwal Jumat</h3>
+            <h3 className="text-xl font-bold mb-1">Edit Jadwal Jumat</h3>
             <p className="text-xs text-gray-400 mb-4 font-mono">ID: {editingJadwal.id ?? editingJadwal.id_jadwal}</p>
             <form onSubmit={handleSaveEditJadwal} className="space-y-4">
               <div>
@@ -663,7 +663,7 @@ function KelolaImam() {
                   onChange={e => setEditJadwalForm(p => ({ ...p, tanggal_jumat: e.target.value }))}
                   className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-500" required />
                 {editJadwalForm.tanggal_jumat && new Date(editJadwalForm.tanggal_jumat).getDay() !== 5 && (
-                  <p className="text-amber-500 text-xs mt-1">⚠️ Bukan hari Jumat</p>
+                  <p className="text-amber-500 text-xs mt-1">Bukan hari Jumat!</p>
                 )}
               </div>
               <div>
@@ -695,7 +695,7 @@ function KelolaImam() {
               <div className="flex gap-3">
                 <button type="button" onClick={() => { setShowEditJadwal(false); setEditingJadwal(null); }} className="flex-1 border py-2 rounded-lg hover:bg-gray-50">Batal</button>
                 <button type="submit" disabled={savingJadwal} className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-50">
-                  {savingJadwal ? '⏳ Menyimpan...' : '💾 Simpan'}
+                  {savingJadwal ? 'Menyimpan...' : ' Simpan'}
                 </button>
               </div>
             </form>
@@ -707,8 +707,8 @@ function KelolaImam() {
       {showGenerateModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl w-full max-w-md p-6 shadow-xl">
-            <h3 className="text-xl font-bold mb-2">🔄 Generate Jadwal Tahunan</h3>
-            <p className="text-sm text-gray-500 mb-4">Distribusi round-robin, otomatis merata ke semua imam.</p>
+            <h3 className="text-xl font-bold mb-2">Generate Jadwal Tahunan</h3>
+            <p className="text-sm text-gray-500 mb-4">Distribusi otomatis merata ke semua imam.</p>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Pilih Tahun</label>
@@ -717,17 +717,18 @@ function KelolaImam() {
                 </select>
               </div>
               <div className="bg-blue-50 rounded-lg p-4 text-sm space-y-1.5">
-                <p className="font-semibold text-blue-800">📊 Preview</p>
+                <p className="font-semibold text-blue-800">Preview</p>
                 <p className="text-blue-700">Jumlah Jumat: <strong>{hitungJumlahJumat(tahunGenerate)} hari</strong></p>
                 <p className="text-blue-700">Imam: <strong>{imam.length} orang</strong></p>
-                {imam.length > 0 && <p className="text-blue-700">Per imam: <strong>{Math.floor(hitungJumlahJumat(tahunGenerate) / imam.length)}–{Math.ceil(hitungJumlahJumat(tahunGenerate) / imam.length)} jadwal</strong></p>}
-                <p className="text-xs text-amber-600 pt-1">Jadwal lama tahun {tahunGenerate} akan dihapus.</p>
+                {imam.length > 0 && <p className="text-blue-700">Per imam: <strong>{Math.floor(hitungJumlahJumat(tahunGenerate)/imam.length)}–{Math.ceil(hitungJumlahJumat(tahunGenerate)/imam.length)} jadwal</strong></p>}
+                <p className="text-xs text-amber-600 pt-1">⚠️ Jadwal lama tahun {tahunGenerate} akan dihapus.</p>
+                <p className="text-xs text-emerald-700">✅ Delay 50ms antar request untuk cegah koneksi putus.</p>
               </div>
             </div>
             <div className="flex gap-3 mt-6">
               <button onClick={() => setShowGenerateModal(false)} className="flex-1 border py-2 rounded-lg hover:bg-gray-50">Batal</button>
-              <button onClick={handleGenerateJadwal} disabled={loading || imam.length === 0} className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-50">
-                {loading ? 'Memproses...' : 'Generate'}
+              <button onClick={handleGenerateJadwal} disabled={loading||imam.length===0} className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-50">
+                {loading ? '⏳ Memproses...' : '✅ Generate'}
               </button>
             </div>
           </div>
